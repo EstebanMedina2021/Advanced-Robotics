@@ -43,6 +43,33 @@ You can use this algorithm to determine the maximum number of arrows Mirana can 
 
 The algorithm to solve this problem is implemented in Python. It uses a sliding window approach to efficiently find the maximum number of arrows that can be released without exceeding the maximum cumulative distance K.
 
+## Algorithm
+
+The `max_arrows` function uses a sliding window approach to efficiently find the maximum number of arrows that can be released without exceeding the maximum cumulative distance `K`. Here's how it works:
+
+1. **Initialize variables:**
+   - `max_arrows_count` to keep track of the maximum number of arrows.
+   - `current_distance` to track the cumulative distance of arrows released.
+   - `left` and `right` pointers to maintain the sliding window.
+
+2. **Iterate through the arrow distances using the `right` pointer:**
+   - Add the distance of the current arrow to `current_distance`.
+
+3. **While `current_distance` exceeds `K`:**
+   - Increment the `left` pointer and subtract the distance of the arrow at the `left` position from `current_distance`.
+   
+   - This ensures that the cumulative distance does not exceed the maximum allowed.
+
+4. **Update `max_arrows_count` with the maximum of its current value and the length of the sliding window (`right - left + 1`):**
+   
+   - This step keeps track of the maximum number of arrows that can be released without exceeding `K`.
+
+5. **Repeat steps 2-4 until all arrows have been considered.**
+
+6. **Return `max_arrows_count` as the result.**
+
+This sliding window approach efficiently calculates the maximum number of arrows that can be released while maintaining Mirana's safety within the specified constraints.
+
 ## Contributing
 
 Contributions to improve the code or add features are welcome! Please fork the repository, create a new branch, and submit a pull request. Ensure that your code is well-documented and follows good software development practices.
